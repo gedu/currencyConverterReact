@@ -13,10 +13,10 @@ const TEMP_CONVERSION_DATE = new Date();
 
 export default class Home extends Component {
 	handlePressBaseCurrency = () => {
-		console.log('BASE');
+		this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' });
 	};
 	handlePressQuoteCurrency = () => {
-		console.log('Quote');
+		this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
 	};
 	handleTextChange = text => {
 		console.log('Text ', text);
@@ -25,7 +25,7 @@ export default class Home extends Component {
 		console.log('Reverse currency');
 	};
 	handleOptionPress = () => {
-		console.log('Option press');
+		this.props.navigation.navigate('Options');
 	};
 	render() {
 		return (

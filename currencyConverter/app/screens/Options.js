@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, StatusBar, Platform } from 'react-native';
-
+import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
+import { ConnectAlert } from '../components/alert';
 import { ListItem, Separator } from '../components/list';
 
 const ICON_PREFIX = Platform.OS === 'ios' ? 'ios' : 'md';
@@ -10,11 +10,13 @@ const ICON_IMAGE = `${ICON_PREFIX}-arrow-forward`;
 
 class Options extends Component {
 	handleThemePress = () => {
-		console.log('THEME PRESS');
+		this.props.navigation.navigate('Themes');
 	};
 
 	handleSitePress = () => {
-		console.log('SITE PRESS');
+		Linking.openURL('http://fixer.io').catch(() =>
+			this.props.alertWithType('error', 'Sorry', "Fixer.io can't be open rigth now.")
+		);
 	};
 
 	render() {
@@ -29,4 +31,4 @@ class Options extends Component {
 	}
 }
 
-export default Options;
+export default ConnectAlert(Options);

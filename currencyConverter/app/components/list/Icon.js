@@ -3,10 +3,14 @@ import { View, Image } from 'react-native';
 
 import styles from './styles';
 
-const Icon = (checkmark, visible) => {
+const Icon = (checkmark, visible, iconBackground = null) => {
 	const iconStyle = [styles.icon];
 	if (visible) {
 		iconStyle.push(styles.iconVisible);
+	}
+
+	if (iconBackground) {
+		iconStyle.push({ background: iconBackground });
 	}
 
 	return (

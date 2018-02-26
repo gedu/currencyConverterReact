@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Home from './screens/Home';
+import Navigator from './config/routes';
+
+import { AlertProvider } from './components/alert';
 
 EStyleSheet.build({
+	$primaryBlue: '#476D7A',
+	$primaryOrange: '#D57A66',
+	$primaryGreen: '#00BD9D',
+	$primaryPurple: '#9E768F',
+
 	$primaryColor: '#4F6D7A',
 	$white: '#FFF',
 	$border: '#E2E2E2',
@@ -14,6 +22,10 @@ EStyleSheet.build({
 
 export default class App extends Component<{}> {
 	render() {
-		return <Home />;
+		return (
+			<AlertProvider>
+				<Navigator />
+			</AlertProvider>
+		);
 	}
 }
