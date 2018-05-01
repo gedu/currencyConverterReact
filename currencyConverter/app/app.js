@@ -7,7 +7,7 @@ import Navigator from './config/routes';
 import { AlertProvider } from './components/alert';
 
 import store from './config/store';
-
+//random test
 EStyleSheet.build({
 	$primaryBlue: '#476D7A',
 	$primaryOrange: '#D57A66',
